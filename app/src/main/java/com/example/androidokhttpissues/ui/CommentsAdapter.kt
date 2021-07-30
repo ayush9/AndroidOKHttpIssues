@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidokhttpissues.R
-import com.example.androidokhttpissues.repo.CommentsDataResponse
+import com.example.androidokhttpissues.objects.CommentsDataResponse
 import java.util.*
 
 class CommentsAdapter(private var commentsList: ArrayList<CommentsDataResponse?>) :

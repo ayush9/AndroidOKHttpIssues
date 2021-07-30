@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.androidokhttpissues.objects.IssuesDataResponse
-import com.example.androidokhttpissues.repo.CommentsDataResponse
+import com.example.androidokhttpissues.objects.CommentsDataResponse
 import com.example.androidokhttpissues.repo.MainRepository
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {

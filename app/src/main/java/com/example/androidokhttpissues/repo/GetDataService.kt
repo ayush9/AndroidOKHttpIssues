@@ -1,5 +1,6 @@
 package com.example.androidokhttpissues.repo
 
+import com.example.androidokhttpissues.objects.CommentsDataResponse
 import com.example.androidokhttpissues.objects.IssuesDataResponse
 import retrofit2.Call
 import retrofit2.http.GET

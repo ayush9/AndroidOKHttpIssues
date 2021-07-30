@@ -2,6 +2,7 @@ package com.example.androidokhttpissues.repo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.androidokhttpissues.objects.CommentsDataResponse
 import com.example.androidokhttpissues.objects.IssuesDataResponse
 import com.example.androidokhttpissues.repo.RetrofitClientInstance.retrofitInstance
 import retrofit2.Call

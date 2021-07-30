@@ -1,4 +1,4 @@
-package com.example.androidokhttpissues.repo
+package com.example.androidokhttpissues.objects
 
 import com.example.androidokhttpissues.objects.User
 import com.google.gson.annotations.SerializedName
