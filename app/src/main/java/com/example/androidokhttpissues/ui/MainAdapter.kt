@@ -1,5 +1,6 @@
 package com.example.androidokhttpissues.ui
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidokhttpissues.R
 import com.example.androidokhttpissues.objects.IssuesDataResponse
+import com.example.androidokhttpissues.viewmodel.MainViewModel
 
 class MainAdapter(private var items: ArrayList<IssuesDataResponse?>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
@@ -56,9 +58,10 @@ class MainAdapter(private var items: ArrayList<IssuesDataResponse?>) : RecyclerV
 
             mainContainer = itemView.findViewById(R.id.main_container)
             mainContainer.setOnClickListener {
-//                val intent = Intent(context, IssueDetailsActivity::class.java)
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                context.startActivity(intent)
+                val intent = Intent(context, IssueDetailsActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                intent.putExtra("number", item.number)
+                context.startActivity(intent)
             }
         }
     }

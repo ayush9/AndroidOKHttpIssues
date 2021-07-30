@@ -4,12 +4,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.androidokhttpissues.objects.IssuesDataResponse
+import com.example.androidokhttpissues.repo.CommentsDataResponse
 import com.example.androidokhttpissues.repo.MainRepository
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mainRepository = MainRepository()
     val issueReponseStatus = MutableLiveData<ArrayList<IssuesDataResponse?>>()
+    val commentsReponseStatus = MutableLiveData<ArrayList<CommentsDataResponse?>>()
 
     init {
         mainRepository.getIssuesData().observeForever {
@@ -19,9 +21,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 issueReponseStatus.postValue(null)
             }
         }
+        mainRepository.getCommentsData().observeForever {
+            if (it != null && it.isNotEmpty()) {
+                commentsReponseStatus.postValue(it)
+            } else {
+                commentsReponseStatus.postValue(null)
+            }
+        }
     }
 
     fun fetchOkHttpIssuesData() {
         mainRepository.fetchIssues()
+    }
+
+    fun fetchIssueCommentsData(number: Int) {
+        mainRepository.fetchComments(number)
     }
 }
