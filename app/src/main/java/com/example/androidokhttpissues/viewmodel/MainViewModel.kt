@@ -10,11 +10,11 @@ import com.example.androidokhttpissues.repo.MainRepository
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mainRepository = MainRepository()
-    val issueReponseStatus = MutableLiveData<ArrayList<IssuesDataResponse?>>()
+    val issueReponseStatus = MutableLiveData<ArrayList<IssuesDataResponse>>()
     val commentsReponseStatus = MutableLiveData<ArrayList<CommentsDataResponse?>>()
 
     init {
-        mainRepository.getIssuesData().observeForever {
+        mainRepository.getIssuesData()?.observeForever {
             if (it != null && it.isNotEmpty()) {
                 issueReponseStatus.postValue(it)
             } else {
@@ -31,7 +31,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun fetchOkHttpIssuesData() {
-        mainRepository.fetchIssues()
+        mainRepository.fetchIssues(getApplication<Application>().applicationContext)
     }
 
     fun fetchIssueCommentsData(number: Int) {

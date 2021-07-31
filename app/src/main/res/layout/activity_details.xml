@@ -6,11 +6,35 @@
     android:orientation="vertical"
     tools:context=".ui.IssueDetailsActivity">
 
+    <ImageView
+        android:id="@+id/posterImage"
+        android:layout_width="70dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_baseline_person_24" />
+
+    <TextView
+        android:id="@+id/titleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textColor="@color/textViewColor"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/posterImage"
+        tools:text="Title"
+        android:textStyle="bold"
+        android:maxLines="1" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewComments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_below="@+id/titleName"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/no_comments"

@@ -13,7 +13,7 @@ import com.example.androidokhttpissues.R
 import com.example.androidokhttpissues.objects.IssuesDataResponse
 import com.example.androidokhttpissues.viewmodel.MainViewModel
 
-class MainAdapter(private var items: ArrayList<IssuesDataResponse?>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(private var items: ArrayList<IssuesDataResponse>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -61,6 +61,8 @@ class MainAdapter(private var items: ArrayList<IssuesDataResponse?>) : RecyclerV
                 val intent = Intent(context, IssueDetailsActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 intent.putExtra("number", item.number)
+                intent.putExtra("title", item.title)
+                intent.putExtra("image", item.user.avatar_url)
                 context.startActivity(intent)
             }
         }

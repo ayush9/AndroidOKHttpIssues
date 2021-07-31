@@ -10,8 +10,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.androidokhttpissues.R
 import com.example.androidokhttpissues.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.activity_details.*
 
 class IssueDetailsActivity : AppCompatActivity() {
 
@@ -26,6 +28,8 @@ class IssueDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_details)
 
         mainViewModel.fetchIssueCommentsData(intent.extras!!.getInt("number"))
+        titleName.text = intent.extras!!.getString("title").toString()
+        Glide.with(this).load(intent.extras!!.getString("image").toString()).into(posterImage)
 
         mainViewModel.commentsReponseStatus.observe(this, {
             if(it != null && it.isNotEmpty()) {

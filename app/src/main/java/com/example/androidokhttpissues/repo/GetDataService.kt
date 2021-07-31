@@ -10,7 +10,7 @@ import retrofit2.http.Path
 interface GetDataService {
 
     @GET("repos/square/okhttp/issues")
-    fun getOkHttpIssues(): Call<ArrayList<IssuesDataResponse?>>
+    fun getOkHttpIssues(): Call<ArrayList<IssuesDataResponse>>
 
     @GET("repos/square/okhttp/issues/{id}/comments")
     fun getIssuesComment(@Path(value = "id", encoded = true) id : Int): Call<java.util.ArrayList<CommentsDataResponse?>>
