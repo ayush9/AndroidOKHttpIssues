@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.androidokhttpissues.OpenForTesting
 import com.example.androidokhttpissues.objects.CommentsDataResponse
 import com.example.androidokhttpissues.objects.IssuesDataResponse
 import com.example.androidokhttpissues.repo.RetrofitClientInstance.retrofitInstance
@@ -20,13 +21,13 @@ import java.lang.reflect.Type
 import java.nio.charset.Charset
 import java.util.*
 
-
-class MainRepository {
+@OpenForTesting
+open class MainRepository {
 
     private lateinit var issuesData: MutableLiveData<ArrayList<IssuesDataResponse>>
     private var commentsData: MutableLiveData<ArrayList<CommentsDataResponse?>>? = null
 
-    fun getIssuesData(): LiveData<ArrayList<IssuesDataResponse>> {
+    open fun getIssuesData(): LiveData<ArrayList<IssuesDataResponse>> {
         if (this::issuesData.isInitialized) {
             return issuesData
         } else {

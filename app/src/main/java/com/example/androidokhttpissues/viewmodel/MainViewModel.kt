@@ -3,10 +3,12 @@ package com.example.androidokhttpissues.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.example.androidokhttpissues.OpenForTesting
 import com.example.androidokhttpissues.objects.IssuesDataResponse
 import com.example.androidokhttpissues.objects.CommentsDataResponse
 import com.example.androidokhttpissues.repo.MainRepository
 
+@OpenForTesting
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mainRepository = MainRepository()

@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id "androidx.navigation.safeargs.kotlin"
+    id 'kotlin-allopen'
 }
 
 android {
@@ -52,4 +55,36 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    testImplementation('org.powermock:powermock-module-junit4:1.6.2') {
+        exclude module: 'hamcrest-core'
+        exclude module: 'objenesis'
+    }
+    testImplementation('org.powermock:powermock-api-mockito:1.6.2') {
+        exclude module: 'hamcrest-core'
+        exclude module: 'objenesis'
+    }
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
+    testImplementation "androidx.arch.core:core-testing:2.0.1"
+    testImplementation('com.nhaarman:mockito-kotlin-kt1.1:1.5.0', {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+    })
+
+    androidTestImplementation 'androidx.test:core:1.2.0'
+
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-web:3.2.0'
+    androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.2.0'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
+    androidTestImplementation 'org.mockito:mockito-android:2.25.0'
+    kaptAndroidTest 'androidx.databinding:databinding-compiler:3.4.2'
+    testImplementation "org.json:json:20180813"
 }

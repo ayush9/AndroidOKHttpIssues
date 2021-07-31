@@ -4,8 +4,10 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import com.example.androidokhttpissues.OpenForTesting
 
-class NetworkUtil {
+@OpenForTesting
+open class NetworkUtil {
 
     companion object {
         fun isNetworkAvailable(context: Context?): Boolean {
